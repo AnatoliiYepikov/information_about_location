@@ -26,10 +26,18 @@ class _CityWidgetState extends State<CityWidget> {
           if (snapshot.hasData) {
             return Column(
               children: [
-                Text('Country: ${snapshot.data!.country}'),
-                Text('City: ${snapshot.data!.city}'),
-                Text('Latitude: ${snapshot.data!.lat}'),
-                Text('Longitude: ${snapshot.data!.lon}'),
+                Row(
+                  children: [
+                    Text('Country: ${snapshot.data!.country}'),
+                    Text('City: ${snapshot.data!.city}'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text('Latitude: ${snapshot.data!.latitude}'),
+                    Text('Longitude: ${snapshot.data!.longitude}'),
+                  ],
+                ),
               ],
             );
           } else if (snapshot.hasError) {

@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:information_about_location/data/weather/weather_model.dart';
-import 'package:information_about_location/data/geolocator/geolocator_model.dart';
-import 'package:information_about_location/data/geolocator/geolocator_service.dart';
+import 'package:information_about_location/data/coordinates/coordinates_model.dart';
+import 'package:information_about_location/data/coordinates/coordinates_service.dart';
 
 Future<WeatherModel> fetchWeatherModel() async {
   CoordinatesModel coordinates = await determinePosition();

@@ -1,5 +1,5 @@
 import 'package:geolocator/geolocator.dart';
-import 'package:information_about_location/data/geolocator/geolocator_model.dart';
+import 'package:information_about_location/data/coordinates/coordinates_model.dart';
 
 Future<CoordinatesModel> determinePosition() async {
   bool serviceEnabled;
