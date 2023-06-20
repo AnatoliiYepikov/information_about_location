@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:information_about_location/logic/city_widget/city_widget.dart';
 import 'package:information_about_location/logic/solar_day_widget/solar_day_widget.dart';
 import 'package:information_about_location/logic/weather_widget/weather_widget.dart';
+import 'package:information_about_location/logic/form_widget/form_widget.dart';
+import 'package:information_about_location/logic/map_widget/map_widget.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -20,20 +22,40 @@ class _MyAppState extends State<MyApp> {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('INFORMATION about LOCATION'),
+          title: const Text(
+            'INFORMATION about LOCATION',
+            textAlign: TextAlign.center,
+          ),
         ),
         body: Center(
           child: Column(
-            children: const [
+            children: [
               Expanded(
-                child: CityWidget(),
+                flex: 2,
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        const CityWidget(),
+                        Row(
+                          children: const [
+                            WeatherWidget(),
+                            SolarDayWidget(),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Expanded(
-                child: WeatherWidget(),
+              const Expanded(
+                flex: 1,
+                child: MyForm(),
               ),
-              Expanded(
-                child: SolarDayWidget(),
-              ),
+              const Expanded(
+                flex: 6,
+                child: MapWidget(),
+              )
             ],
           ),
         ),

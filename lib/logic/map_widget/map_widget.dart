@@ -13,6 +13,7 @@ class MapWidget extends StatefulWidget {
 
 class _MapWidgetState extends State<MapWidget> {
   late final MapController mapController;
+  LatLng coordinates = LatLng(42.7629600, 11.1094100);
 
   @override
   void initState() {
@@ -22,7 +23,6 @@ class _MapWidgetState extends State<MapWidget> {
 
   @override
   Widget build(BuildContext context) {
-    late LatLng coordinates;
     return FutureBuilder<LatLng>(
         future: fetchMapCoordinates(),
         builder: (context, snapshot) {
@@ -35,9 +35,12 @@ class _MapWidgetState extends State<MapWidget> {
               options: MapOptions(
                 onTap: (tapPosition, point) {
                   mapController.move(point, mapController.zoom);
+                  snapshot.data!.latitude = point.latitude;
+                  snapshot.data!.longitude = point.longitude;
+                  setState(() {});
                 },
                 center: coordinates,
-                zoom: 9.2,
+                zoom: 7,
                 maxZoom: 18.0,
               ),
               nonRotatedChildren: [
@@ -56,7 +59,7 @@ class _MapWidgetState extends State<MapWidget> {
                     Marker(
                       point: coordinates,
                       builder: (context) => const Icon(
-                        Icons.audiotrack,
+                        Icons.pin_drop,
                         color: Colors.green,
                         size: 30.0,
                       ),
