@@ -14,7 +14,7 @@ class MapWidget extends StatefulWidget {
 class _MapWidgetState extends State<MapWidget> {
   late final MapController mapController;
   LatLng coordinates = LatLng(42.7629600, 11.1094100);
-
+  Future<LatLng> coordinates1 = fetchMapCoordinates();
   @override
   void initState() {
     mapController = MapController();
@@ -24,7 +24,7 @@ class _MapWidgetState extends State<MapWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<LatLng>(
-        future: fetchMapCoordinates(),
+        future: coordinates1,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             coordinates =
