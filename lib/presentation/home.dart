@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:information_about_location/logic/animated_widget/app_bar_widget.dart';
 import 'package:information_about_location/logic/city_widget/city_widget.dart';
 import 'package:information_about_location/logic/solar_day_widget/solar_day_widget.dart';
 import 'package:information_about_location/logic/weather_widget/weather_widget.dart';
-import 'package:information_about_location/logic/form_widget/form_widget.dart';
+
 import 'package:information_about_location/logic/map_widget/map_widget.dart';
 
 class MyApp extends StatefulWidget {
@@ -17,43 +18,35 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'INFORMATION about LOCATION',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData.light(),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'INFORMATION about LOCATION',
-            textAlign: TextAlign.center,
-          ),
+          title: const AppBarWidget(),
         ),
-        body: Center(
+        body: const SafeArea(
           child: Column(
             children: [
               Expanded(
                 flex: 2,
-                child: Row(
+                child: Column(
                   children: [
-                    Column(
-                      children: [
-                        const CityWidget(),
-                        Row(
-                          children: const [
-                            WeatherWidget(),
-                            SolarDayWidget(),
-                          ],
-                        ),
-                      ],
+                    Expanded(flex: 1, child: CityWidget()),
+                    Expanded(
+                      flex: 2,
+                      child: Row(
+                        //crossAxisAlignment: CrossAxisAlignment.start,
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          WeatherWidget(),
+                          SolarDayWidget(),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              const Expanded(
-                flex: 1,
-                child: MyForm(),
-              ),
-              const Expanded(
-                flex: 6,
+              Expanded(
+                flex: 5,
                 child: MapWidget(),
               )
             ],

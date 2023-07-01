@@ -27,10 +27,15 @@ class _SolarDayWidgetState extends State<SolarDayWidget> {
         if (snapshot.hasData) {
           return Column(
             children: [
-              Text('Sunrise: ${snapshot.data!.sunrise}'),
-              Text('Sunset: ${snapshot.data!.sunset}'),
-              Text('SolarNoon: ${snapshot.data!.solarNoon}'),
-              Text('DayLength: ${snapshot.data!.dayLength}'),
+              const Text('Solar day:', style: TextStyle(fontSize: 18)),
+              Text('Sunrise: ${snapshot.data!.sunrise}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('Sunset: ${snapshot.data!.sunset}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('SolarNoon: ${snapshot.data!.solarNoon}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('DayLength: ${snapshot.data!.dayLength}',
+                  style: const TextStyle(fontSize: 16)),
             ],
           );
         } else if (snapshot.hasError) {

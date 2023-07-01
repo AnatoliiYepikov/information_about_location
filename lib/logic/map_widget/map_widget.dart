@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map/plugin_api.dart';
+import 'package:information_about_location/logic/map_widget/animated_loading_widget.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:information_about_location/data/map/map_service.dart';
 
@@ -15,6 +16,7 @@ class _MapWidgetState extends State<MapWidget> {
   late final MapController mapController;
   LatLng coordinates = LatLng(42.7629600, 11.1094100);
   Future<LatLng> coordinates1 = fetchMapCoordinates();
+
   @override
   void initState() {
     mapController = MapController();
@@ -71,7 +73,7 @@ class _MapWidgetState extends State<MapWidget> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return const CircularProgressIndicator();
+          return const AnimatedLoadingWidget();
         });
   }
 }

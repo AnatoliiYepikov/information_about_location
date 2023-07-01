@@ -27,11 +27,15 @@ class _WeatherWidgetState extends State<WeatherWidget> {
         if (snapshot.hasData) {
           return Column(
             children: [
-              Text('Temp: ${snapshot.data!.temp}'),
-              Text('Description: ${snapshot.data!.description}'),
-              Text('Currently: ${snapshot.data!.currently}'),
-              Text('Humidity: ${snapshot.data!.humidity}'),
-              Text('WindSpeed: ${snapshot.data!.windSpeed}'),
+              const Text('TEMP:', style: TextStyle(fontSize: 18)),
+              Text('Descr: ${snapshot.data!.description}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('Currently: ${snapshot.data!.currently}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('Humidity: ${snapshot.data!.humidity}',
+                  style: const TextStyle(fontSize: 16)),
+              Text('WindSpeed: ${snapshot.data!.windSpeed}',
+                  style: const TextStyle(fontSize: 16)),
             ],
           );
         } else if (snapshot.hasError) {

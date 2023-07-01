@@ -27,15 +27,20 @@ class _CityWidgetState extends State<CityWidget> {
             return Column(
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Country: ${snapshot.data!.country}'),
-                    Text('City: ${snapshot.data!.city}'),
+                    Text(
+                        'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
+                        style: const TextStyle(fontSize: 22),
+                        textAlign: TextAlign.center),
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Latitude: ${snapshot.data!.latitude}'),
-                    Text('Longitude: ${snapshot.data!.longitude}'),
+                    Text(
+                        style: const TextStyle(fontSize: 16),
+                        'Latitude: ${snapshot.data!.latitude}     Longitude: ${snapshot.data!.longitude}'),
                   ],
                 ),
               ],
