@@ -25,17 +25,34 @@ class _SolarDayWidgetState extends State<SolarDayWidget> {
       future: futureSolarDayModel,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Column(
+          return ListView(
+            padding: const EdgeInsets.all(5),
             children: [
-              const Text('Solar day:', style: TextStyle(fontSize: 18)),
-              Text('Sunrise: ${snapshot.data!.sunrise}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('Sunset: ${snapshot.data!.sunset}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('SolarNoon: ${snapshot.data!.solarNoon}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('DayLength: ${snapshot.data!.dayLength}',
-                  style: const TextStyle(fontSize: 16)),
+              const Text(
+                'Solar day:',
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Sunrise: ${snapshot.data!.sunrise}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Sunset: ${snapshot.data!.sunset}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'SolarNoon: ${snapshot.data!.solarNoon}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'DayLength: ${snapshot.data!.dayLength}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
             ],
           );
         } else if (snapshot.hasError) {

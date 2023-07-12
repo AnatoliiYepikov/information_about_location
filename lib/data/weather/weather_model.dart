@@ -17,7 +17,7 @@ class WeatherModel {
     return WeatherModel(
       temp: json['main']['temp'].toString(),
       description: json['weather'][0]['description'].toString(),
-      currently: json['main']['temp'].toString(),
+      currently: (json['main']['temp'] - 273.15).toInt().toString(),
       humidity: json['main']['humidity'].toString(),
       windSpeed: json['wind']['speed'].toString(),
     );

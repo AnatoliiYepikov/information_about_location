@@ -24,25 +24,16 @@ class _CityWidgetState extends State<CityWidget> {
         future: futureCityModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Column(
+            return ListView(
+              padding: const EdgeInsets.all(5),
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                        'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
-                        style: const TextStyle(fontSize: 22),
-                        textAlign: TextAlign.center),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                        style: const TextStyle(fontSize: 16),
-                        'Latitude: ${snapshot.data!.latitude}     Longitude: ${snapshot.data!.longitude}'),
-                  ],
-                ),
+                Text(
+                    'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
+                    style: const TextStyle(fontSize: 22),
+                    textAlign: TextAlign.center),
+                Text(
+                    style: const TextStyle(fontSize: 16),
+                    'Latitude: ${snapshot.data!.latitude}     Longitude: ${snapshot.data!.longitude}'),
               ],
             );
           } else if (snapshot.hasError) {

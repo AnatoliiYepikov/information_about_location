@@ -25,17 +25,34 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       future: futureWeatherModel,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Column(
+          return ListView(
+            padding: const EdgeInsets.all(5),
             children: [
-              const Text('TEMP:', style: TextStyle(fontSize: 18)),
-              Text('Descr: ${snapshot.data!.description}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('Currently: ${snapshot.data!.currently}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('Humidity: ${snapshot.data!.humidity}',
-                  style: const TextStyle(fontSize: 16)),
-              Text('WindSpeed: ${snapshot.data!.windSpeed}',
-                  style: const TextStyle(fontSize: 16)),
+              const Text(
+                'TEMP:',
+                style: TextStyle(fontSize: 18),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Descr: ${snapshot.data!.description}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Currently: ${snapshot.data!.currently}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'Humidity: ${snapshot.data!.humidity}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                'WindSpeed: ${snapshot.data!.windSpeed}',
+                style: const TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
             ],
           );
         } else if (snapshot.hasError) {

@@ -18,34 +18,41 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'INFORMATION about LOCATION',
-      theme: ThemeData.light(),
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+        color: Colors.amber,
+      )),
       home: Scaffold(
         appBar: AppBar(
           title: const AppBarWidget(),
         ),
-        body: const SafeArea(
+        body: SafeArea(
           child: Column(
             children: [
               Expanded(
                 flex: 2,
                 child: Column(
                   children: [
-                    Expanded(flex: 1, child: CityWidget()),
                     Expanded(
+                      flex: 1,
+                      child: Container(
+                        padding: const EdgeInsets.all(10),
+                        child: const CityWidget(),
+                      ),
+                    ),
+                    const Expanded(
                       flex: 2,
                       child: Row(
-                        //crossAxisAlignment: CrossAxisAlignment.start,
-                        //mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          WeatherWidget(),
-                          SolarDayWidget(),
+                          Expanded(child: WeatherWidget()),
+                          Expanded(child: SolarDayWidget()),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 5,
                 child: MapWidget(),
               )
