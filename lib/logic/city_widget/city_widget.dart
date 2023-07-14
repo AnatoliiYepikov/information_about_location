@@ -24,23 +24,14 @@ class _CityWidgetState extends State<CityWidget> {
         future: futureCityModel,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return ListView(
-              padding: const EdgeInsets.all(5),
-              children: [
-                Text(
-                    'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
-                    style: const TextStyle(fontSize: 22),
-                    textAlign: TextAlign.center),
-                Text(
-                    style: const TextStyle(fontSize: 16),
-                    'Latitude: ${snapshot.data!.latitude}     Longitude: ${snapshot.data!.longitude}'),
-              ],
-            );
+            return Text(
+                'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
+                style: const TextStyle(fontSize: 22),
+                textAlign: TextAlign.center);
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
 
-          // By default, show a loading spinner.
           return const CircularProgressIndicator();
         });
   }

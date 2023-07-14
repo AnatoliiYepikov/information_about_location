@@ -25,8 +25,7 @@ class _SolarDayWidgetState extends State<SolarDayWidget> {
       future: futureSolarDayModel,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return ListView(
-            padding: const EdgeInsets.all(5),
+          return Column(
             children: [
               const Text(
                 'Solar day:',

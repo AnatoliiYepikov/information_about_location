@@ -25,8 +25,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
       future: futureWeatherModel,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return ListView(
-            padding: const EdgeInsets.all(5),
+          return Column(
             children: [
               const Text(
                 'TEMP:',
@@ -34,7 +33,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
                 textAlign: TextAlign.center,
               ),
               Text(
-                'Descr: ${snapshot.data!.description}',
+                'Description: ${snapshot.data!.description}',
                 style: const TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
