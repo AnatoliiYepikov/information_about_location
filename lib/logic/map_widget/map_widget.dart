@@ -8,7 +8,8 @@ import 'package:information_about_location/logic/map_widget/animated_loading_wid
 import 'package:information_about_location/logic/solar_day_widget/solar_day_widget.dart';
 import 'package:information_about_location/logic/weather_widget/weather_widget.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:information_about_location/data/map/map_service.dart';
+//import 'package:information_about_location/data/map/map_service.dart';
+import 'package:information_about_location/presentation/home.dart';
 
 class MapWidget extends StatefulWidget {
   const MapWidget({super.key});
@@ -18,10 +19,6 @@ class MapWidget extends StatefulWidget {
 }
 
 class _MapWidgetState extends State<MapWidget> {
-  late final MapController mapController;
-  LatLng coordinates = LatLng(42.7629600, 11.1094100);
-  Future<LatLng> coordinates1 = fetchMapCoordinates();
-
   @override
   void initState() {
     mapController = MapController();
