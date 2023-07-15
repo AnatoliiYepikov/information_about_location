@@ -37,8 +37,8 @@ class _MapWidgetState extends State<MapWidget> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const CityWidget(),
-                const Row(
+                CityWidget(),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     WeatherWidget(),

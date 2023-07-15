@@ -14,7 +14,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
 
   @override
   void initState() {
-    futureWeatherModel = fetchWeatherModel();
+    //futureWeatherModel = fetchWeatherModel();
 
     super.initState();
   }
@@ -22,7 +22,7 @@ class _WeatherWidgetState extends State<WeatherWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<WeatherModel>(
-      future: futureWeatherModel,
+      future: fetchWeatherModel(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Column(

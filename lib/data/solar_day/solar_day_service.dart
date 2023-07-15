@@ -8,9 +8,9 @@ import 'package:information_about_location/presentation/home.dart';
 
 Future<SolarDayModel> fetchSolarDayModel() async {
   //CoordinatesModel coordinates = await determinePosition();
-  final response = await http.get(Uri.parse(
-      'https://api.sunrise-sunset.org/json?lat=${coordinates.latitude.toString()}&lng=${coordinates.longitude.toString()}'));
 
+  var response = await http.get(Uri.parse(
+      'https://api.sunrise-sunset.org/json?lat=${coordinates.latitude.toString()}&lng=${coordinates.longitude.toString()}'));
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
     // then parse the JSON.

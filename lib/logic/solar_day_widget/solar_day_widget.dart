@@ -22,7 +22,7 @@ class _SolarDayWidgetState extends State<SolarDayWidget> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<SolarDayModel>(
-      future: futureSolarDayModel,
+      future: fetchSolarDayModel(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Column(

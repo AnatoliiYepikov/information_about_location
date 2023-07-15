@@ -8,9 +8,16 @@ class CityModel {
   });
 
   factory CityModel.fromJson(List<dynamic> json) {
-    return CityModel(
-      city: json[0]['name'].toString(),
-      country: json[0]['country'].toString(),
-    );
+    if (json.isEmpty) {
+      return CityModel(
+        city: 'The country and city could not be identified.',
+        country: '',
+      );
+    } else {
+      return CityModel(
+        city: json[0]['name'].toString(),
+        country: json[0]['country'].toString(),
+      );
+    }
   }
 }

@@ -14,20 +14,25 @@ class _CityWidgetState extends State<CityWidget> {
 
   @override
   void initState() {
-    futureCityModel = fetchCityModel();
+    //futureCityModel = fetchCityModel();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<CityModel>(
-        future: futureCityModel,
+        future: fetchCityModel(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return Text(
-                'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
-                style: const TextStyle(fontSize: 22),
-                textAlign: TextAlign.center);
+            if (snapshot.data!.country == '') {
+              return Text('The country and city could not be identified.',
+                  style: TextStyle(fontSize: 22), textAlign: TextAlign.center);
+            } else {
+              return Text(
+                  'Country: ${snapshot.data!.country}     City: ${snapshot.data!.city}',
+                  style: const TextStyle(fontSize: 22),
+                  textAlign: TextAlign.center);
+            }
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
