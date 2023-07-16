@@ -25,7 +25,7 @@ class _CityWidgetState extends State<CityWidget> {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.country == '') {
-              return Text('The country and city could not be identified.',
+              return const Text('unknown location',
                   style: TextStyle(fontSize: 22), textAlign: TextAlign.center);
             } else {
               return Text(
